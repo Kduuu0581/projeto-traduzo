@@ -23,7 +23,8 @@
           <li class="row from">
             <select name="translate-from">
               {% for language in languages %}
-                <option value="{{language['name']}}">{{language["name"]|upper}}</option>
+                <option value="{{ language['acronym'] }}" {{'selected' if language['acronym']==translate_from}}>{{
+language['name']|upper }}</option>
               {% endfor %}
             </select>
           </li>
@@ -33,7 +34,8 @@
           <li class="row to">
             <select name="translate-to">
               {% for language in languages %}
-                <option value="{{language['name']}}">{{language["name"]|upper}}</option>
+                <option value="{{ language['acronym'] }}" {% if language['acronym']==translate_to %} selected="selected" {% 
+endif %}>{{ language['name']|upper }}</option>
               {% endfor %}
             </select>
           </li>
